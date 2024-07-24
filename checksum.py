@@ -1,4 +1,4 @@
-print("Check sum calcuator")
+print("<<<<<<<<<<<<< Check sum calculator >>>>>>>>>>>>>>>")
 s = []
 r = []
 
@@ -36,14 +36,14 @@ def calculate(frames):
     return ((len(frames[0]) - len(result)) * "0") + result
 
 
-print("\n--Enter sender frames(assuming all frames are received)--\n")
+print("\n********* Enter sender frames *********\n")
 n = int(input("Enter no. of frames:"))
 inputEl(n, s)
 Ssum = calculate(s)
 checksum = "".join([str(int(not int(bit))) for bit in Ssum])
-print("Sender chechsum is:", checksum)
+print("SENDER CHECKSUM is:", checksum)
 
-print("\n--Enter receiver frames details--\n")
+print("\n********* Enter receiver frames details(assuming all frames are received) *********\n")
 inputEl(n, r)
 Rsum = calculate(r)
 print("Final checksum calculation:")
@@ -53,9 +53,9 @@ print("-----------")
 final = str(bin(int(checksum, 2) + int(Rsum, 2)))[2:]
 print(" ", final)
 validate = "".join([str(int(not int(bit))) for bit in final])
-print("Receiver checksum is:", validate)
+print("\nRECEIVER CHECKSUM is:", validate)
 
 if "1" in validate:
-  print("\nError detected")
+  print("->Error detected")
 else:
-  print("\nNo error detected")
+  print("->No error detected")
